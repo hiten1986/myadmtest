@@ -3,6 +3,7 @@
     <head>
         <title>{!! Theme::get('title') !!}</title>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="keywords" content="{{! Theme::get('keywords') !!}">
         <meta name="description" content="{{! Theme::get('description') !!}">
         {!! Theme::asset()->styles() !!}
@@ -11,20 +12,20 @@
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-blue wysihtml5-supported  pace-done" style="min-height: 1768px">
-        {!! Theme::partial('header') !!}
-        
-        <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 1768px">
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            {!! Theme::partial('header') !!}
 
             {!! Theme::partial('left-side') !!}
 
-            <aside class="right-side">
+            <div class="content-wrapper">
                 {!! Theme::content() !!}
-            </aside>
+            </div>
 
         </div>
 

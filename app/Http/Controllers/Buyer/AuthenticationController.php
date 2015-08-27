@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Buyer;
 
+use App\Http\Controllers\Controller;
 use Auth;
 use Theme;
 use Illuminate\Http\Request;
+
 use App\Kopassus\Libraries\UserInterface\AdminAlert;
 
 // Load modules
@@ -19,7 +21,6 @@ class AuthenticationController extends Controller
 	public function index(Request $req)
 	{	
 		if($req->input()) {
-			// dd($req->input());
 
 			// Set alert and store as Flash session
 			AdminAlert::addMessage('Ini sukses', 1);
@@ -37,6 +38,7 @@ class AuthenticationController extends Controller
 
 		$view = array(
 			'alerts' => AdminAlert::showAlert($req),
+			'app_title' => 'Buyer Interface',
             'loginUrl' => sprintf("%s/login", config('app.url')),
         );
 

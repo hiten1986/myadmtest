@@ -1,9 +1,10 @@
 <?php
+namespace App\Http\Controllers\Seller;
 
-namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use Auth;
 use Theme;
+
 use App\Kopassus\Libraries\UserInterface\AdminNavigation;
 
 // Load modules
@@ -14,7 +15,7 @@ class HomeController extends Controller
 {
     
 	public function index()
-	{	
+	{
 		// Load UI plugin
 		Theme::asset()->serve('morris-chart');
 		

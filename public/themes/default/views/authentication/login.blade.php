@@ -3,7 +3,7 @@
 
 <div class="login-box">
     <div class="login-logo">
-        <a href="../../index2.html"><b>MatahariBiz</b> <br> Seller Interface</a>
+        <a href="../../index2.html"><b>MatahariBiz</b> <br> {{ $app_title }}</a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         {!! $alerts !!}

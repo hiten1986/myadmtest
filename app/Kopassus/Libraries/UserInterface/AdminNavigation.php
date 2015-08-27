@@ -17,16 +17,41 @@ class AdminNavigation
     private static function setMenu()
     {
         Static::$arrMainMenu = [
+            // Dashboard
             [ 'url' => 'dashboard', 'label' => 'Dashboard', 'rawContent' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>' ],
-            [ 'url' => 'contacts', 'label' => 'Contact', 'rawContent' => '<i class="fa fa-dashboard"></i> <span>Contact</span> <small class="badge pull-right bg-yellow">12</small>' ],
-            [ 'url' => '#', 'label' => 'Parent', 'rawContent' => '<i class="fa fa-calendar"></i> <span>Parent</span> <i class="fa fa-angle-left pull-right"></i>',
+            
+            [ 'url' => '#', 'label' => 'Products', 'rawContent' => '<i class="fa fa-cube"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>',
                     'childrens' => [
-                        [ 'url' => '#', 'label' => 'Menu 1', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Menu 1' ],
-                        [ 'url' => '#', 'label' => 'Menu 2', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Menu 2' ],
-                        [ 'url' => '#', 'label' => 'Menu 3', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Menu 3' ],
+                        [ 'url' => 'product/list', 'label' => 'Manage Product', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Manage Product' ],
                     ]
                 ],
-            [ 'url' => 'inbox', 'label' => 'Inbox', 'rawContent' => '<i class="fa fa-envelope"></i> <span>Inbox</span>' ],
+
+            [ 'url' => '#', 'label' => 'Relations', 'rawContent' => '<i class="fa fa-bullseye"></i> <span>Relations</span> <i class="fa fa-angle-left pull-right"></i>',
+                    'childrens' => [
+                        [ 'url' => 'relation/termofpay', 'label' => 'Manage Term of Payment', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Manage Term of Payment' ],
+                        [ 'url' => 'relation/termofpay', 'label' => 'Manage Favorite Buyers', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Manage Favorite Buyers' ],
+                    ]
+                ],
+
+            [ 'url' => '#', 'label' => 'Purchase', 'rawContent' => '<i class="fa fa-shopping-cart"></i> <span>Purchase</span> <i class="fa fa-angle-left pull-right"></i>',
+                    'childrens' => [
+                        [ 'url' => 'purchase/list', 'label' => 'Manage Orders', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Manage Orders' ],
+                        [ 'url' => 'purchase/report', 'label' => 'Orders Report', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Orders Report' ],
+                    ]
+                ],
+
+            [ 'url' => '#', 'label' => 'Shipping', 'rawContent' => '<i class="fa fa-truck"></i> <span>Shipping</span> <i class="fa fa-angle-left pull-right"></i>',
+                    'childrens' => [
+                        [ 'url' => 'shipping/list', 'label' => 'Manage Shipping Info', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Manage Shipping Info' ],
+                    ]
+                ],
+
+            [ 'url' => '#', 'label' => 'Account', 'rawContent' => '<i class="fa fa-group"></i> <span>Account</span> <i class="fa fa-angle-left pull-right"></i>',
+                    'childrens' => [
+                        [ 'url' => 'account/user', 'label' => 'User Info', 'rawContent' => '<i class="fa fa-angle-double-right"></i>User Info' ],
+                        [ 'url' => 'account/company', 'label' => 'Company Info', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Company Info' ],
+                    ]
+                ],
         ];
     }
     

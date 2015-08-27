@@ -15,8 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', 'AuthenticationController@index');
-Route::post('/login', 'AuthenticationController@index');
+Route::group(['domain' => 'seller.kopassus.kom'], function () {
+	Route::group(['namespace' => 'Seller'], function () {
+	    Route::get('/login', 'AuthenticationController@index');
+		Route::post('/login', 'AuthenticationController@index');
+		// Route::get('/home', 'Seller\HomeController@index');
+		Route::get('/home', 'HomeController@index');
+	});
+});
 
-Route::get('/home', 'HomeController@index');
-// Route::get('/home', [ 'middleware' => 'auth', 'use' => 'HomeController@index' ]);
+Route::group(['domain' => 'buyer.kopassus.kom'], function () {
+	Route::group(['namespace' => 'Buyer'], function () {
+	    Route::get('/login', 'AuthenticationController@index');
+		Route::post('/login', 'AuthenticationController@index');
+		// Route::get('/home', 'Seller\HomeController@index');
+		Route::get('/home', 'HomeController@index');
+	});
+});

@@ -1,20 +1,32 @@
 <?php
+namespace App\Kopassus\Modules\AdminBuyer\Http\Controllers;
 
-namespace App\Http\Controllers\Buyer;
-
-use App\Http\Controllers\Controller;
 use Auth;
 use Theme;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Kopassus\Libraries\UserInterface\AdminAlert;
 
-// Load modules
-use App\Kopassus\Models\SellerUserModel as SellerUser;
-
 class AuthenticationController extends Controller
 {
-    
+	protected $confName = 'modules_buyer';
+	protected $aryConfig;
+    protected $baseUrl;
+    protected $appTitle;
+    protected $appDescription;
+    protected $appTheme;
+
+    public function __construct()
+    {
+    	// load own config
+		$this->aryConfig = config($this->confName);
+		$this->baseUrl = $this->aryConfig['baseUrl'];
+        $this->appTitle = $this->aryConfig['appTitle'];
+        $this->appDescription = $this->aryConfig['appDescription'];
+        $this->appTheme = $this->aryConfig['appTheme'];
+    }
+
     /**
      * Login
      **/
@@ -34,12 +46,12 @@ class AuthenticationController extends Controller
 
 		// Load UI plugin
 		Theme::asset()->serve('icheck');
-		$theme = Theme::uses('default')->layout('login');
+		$theme = Theme::uses($this->appTheme)->layout('login');
 
 		$view = array(
 			'alerts' => AdminAlert::showAlert($req),
-			'app_title' => 'Buyer Interface',
-            'loginUrl' => sprintf("%s/login", config('app.url')),
+			'app_title' => $this->appTitle,
+            'loginUrl' => sprintf("%s/login", $this->baseUrl),
         );
 
         return $theme->scope('authentication.login', $view)->render();

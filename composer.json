@@ -9,7 +9,9 @@
         "laravel/framework": "5.1.*",
         "teepluss/theme": "dev-master",
         "vespakoen/menu": "3.*",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "caffeinated/modules": "~2.0",
+        "wikimedia/composer-merge-plugin": "^1.3@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

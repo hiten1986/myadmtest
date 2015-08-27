@@ -11,6 +11,7 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,3 +33,4 @@ Route::group(['domain' => 'buyer.kopassus.kom'], function () {
 		Route::get('/home', 'HomeController@index');
 	});
 });
+*/

@@ -24,7 +24,7 @@ return array(
 	|
 	*/
 
-	'themeDefault' => 'default',
+	'themeDefault' => 'admin_seller_default',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "teepluss/theme": "dev-master",
-        "vespakoen/menu": "3.*"
+        "vespakoen/menu": "3.*",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

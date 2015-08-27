@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Theme;
 use App\Kopassus\Libraries\UserInterface\AdminNavigation;
 
 // Load modules
 use App\Kopassus\Modules\Dashboard;
+use App\Kopassus\Models\SellerUserModel as SellerUser;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,6 @@ class HomeController extends Controller
 		$theme->partialComposer('left-side', function($view) {
 			$view->with('menu', AdminNavigation::genMainMenu());
 		});
-
-		// Dashboard
 
 		$view = array(
             'name' => 'Teepluss',

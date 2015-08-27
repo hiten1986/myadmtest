@@ -109,6 +109,22 @@ return array(
                 $asset->container('footer')->add('adminlte-demo-js', 'bower_components/admin-lte/dist/js/demo.js');
             });
 
+            $theme->asset()->cook('icheck', function($asset) {
+                $asset->add('icheck-css', 'bower_components/admin-lte/plugins/iCheck/square/blue.css');
+                $asset->container('footer')->add('icheck-js', 'bower_components/admin-lte/plugins/iCheck/icheck.min.js');
+                $asset->container('footer')->writeContent('icheck-custom-js', '
+                    <script>
+                      $(function () {
+                        $("input").iCheck({
+                          checkboxClass: "icheckbox_square-blue",
+                          radioClass: "iradio_square-blue",
+                          increaseArea: "20%" // optional
+                        });
+                      });
+                    </script>
+                ');
+            });
+
             // LOAD ASSETS
 
             $theme->asset()->add('bootstrapcdn', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');

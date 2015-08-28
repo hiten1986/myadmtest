@@ -98,12 +98,6 @@ return array(
                 $asset->container('footer')->add('bootstrap-wysihtml5-js', 'bower_components/admin-lte/plugins/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js');
             });
 
-            $theme->asset()->cook('adminlte', function($asset) {
-                $asset->add('adminlte-css', 'bower_components/admin-lte/dist/css/AdminLTE.min.css');
-                $asset->add('adminlte-skin-css', 'bower_components/admin-lte/dist/css/skins/_all-skins.min.css');
-                $asset->container('footer')->add('adminlte-app-js', 'bower_components/admin-lte/dist/js/app.min.js');
-            });
-
             $theme->asset()->cook('adminlte-demo', function($asset) {
                 $asset->container('footer')->add('adminlte-dash-js', 'bower_components/admin-lte/dist/js/pages/dashboard.js');
                 $asset->container('footer')->add('adminlte-demo-js', 'bower_components/admin-lte/dist/js/demo.js');
@@ -125,19 +119,22 @@ return array(
                 ');
             });
 
-            // LOAD ASSETS
+            $theme->asset()->cook('default', function($asset) {
+                $asset->add('bootstrapcdn', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');
+                $asset->add('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+                $asset->add('ionicons', '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
 
-            $theme->asset()->add('bootstrapcdn', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');
-            $theme->asset()->add('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
-            $theme->asset()->add('ionicons', '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+                $asset->add('jquerycdn', '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
+                $asset->add('jqueryuicdn', '//code.jquery.com/ui/1.11.4/jquery-ui.min.js');
+                $asset->add('bootstrapcdn-js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
+                $asset->container('footer')->add('sparkline', 'bower_components/admin-lte/plugins/sparkline/jquery.sparkline.min.js');
+                $asset->container('footer')->add('jq-knob-chart', 'bower_components/admin-lte/plugins/knob/jquery.knob.js');
 
-            $theme->asset()->container('footer')->add('jquerycdn', '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
-            $theme->asset()->container('footer')->add('jqueryuicdn', '//code.jquery.com/ui/1.11.4/jquery-ui.min.js');
-            $theme->asset()->container('footer')->add('bootstrapcdn-js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
-            $theme->asset()->container('footer')->add('sparkline', 'bower_components/admin-lte/plugins/sparkline/jquery.sparkline.min.js');
-            $theme->asset()->container('footer')->add('jq-knob-chart', 'bower_components/admin-lte/plugins/knob/jquery.knob.js');
-
-            $theme->asset()->serve('adminlte');
+                // Admin LTE default assets
+                $asset->add('adminlte-css', 'bower_components/admin-lte/dist/css/AdminLTE.min.css');
+                $asset->add('adminlte-skin-css', 'bower_components/admin-lte/dist/css/skins/_all-skins.min.css');
+                $asset->container('footer')->add('adminlte-app-js', 'bower_components/admin-lte/dist/js/app.min.js');
+            });
 
         },
 

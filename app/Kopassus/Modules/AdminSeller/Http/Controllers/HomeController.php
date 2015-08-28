@@ -32,13 +32,13 @@ class HomeController extends Controller
 	}
 
 	public function index(Request $req)
-	{
-
-		// Load UI plugin
-		Theme::asset()->serve('morris-chart');
-		
+	{		
 		// Theming
 		$theme = Theme::uses($this->appTheme);
+		$theme->asset()->serve('default');
+		$theme->asset()->serve('morris-chart');
+		$theme->asset()->container('footer')->usePath()->add('dashboard-js', 'js/dashboard.js');
+
 		$theme->partialComposer('left-side', function($view) {
 			$view->with('menu', AdminNavigation::genMainMenu($this->appMainMenu));
 		});

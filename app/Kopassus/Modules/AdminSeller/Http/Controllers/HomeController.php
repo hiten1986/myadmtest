@@ -4,8 +4,10 @@ namespace App\Kopassus\Modules\AdminSeller\Http\Controllers;
 use Auth;
 use Theme;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Kopassus\Libraries\UserInterface\AdminNavigation;
+use App\Kopassus\Libraries\BigApi\Seller\Dashboard;
 
 
 class HomeController extends Controller
@@ -29,7 +31,7 @@ class HomeController extends Controller
         $this->appMainMenu = $this->aryConfig['appMainMenu'];
 	}
 
-	public function index()
+	public function index(Request $req)
 	{
 
 		// Load UI plugin
@@ -41,8 +43,14 @@ class HomeController extends Controller
 			$view->with('menu', AdminNavigation::genMainMenu($this->appMainMenu));
 		});
 
+		$widgetTotal = Dashboard::getTotal();
+
 		$view = array(
-            'name' => 'Teepluss',
+			'pageTitle' => 'Dashboard',
+			'pageDesc' => '',
+            'widget' => [
+            	'totalbox' => $widgetTotal,
+            ],
         );
         return $theme->scope('home.index', $view)->render();
 	}

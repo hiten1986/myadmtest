@@ -14,9 +14,11 @@ class AdminNavigation
         
     }
 
-    private static function setMenu()
+    private static function setMenu($aryMenu)
     {
-        Static::$arrMainMenu = [
+        Static::$arrMainMenu = $aryMenu;
+       
+        /*Static::$arrMainMenu = [
             // Dashboard
             [ 'url' => 'dashboard', 'label' => 'Dashboard', 'rawContent' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>' ],
             
@@ -52,12 +54,12 @@ class AdminNavigation
                         [ 'url' => 'account/company', 'label' => 'Company Info', 'rawContent' => '<i class="fa fa-angle-double-right"></i>Company Info' ],
                     ]
                 ],
-        ];
+        ];*/
     }
     
-    public static function genMainMenu()
+    public static function genMainMenu($aryMenu)
     {
-        Self::setMenu();
+        Self::setMenu($aryMenu);
         $aryMenu = Static::$arrMainMenu;
 
         $menu = Menu::handler('mainmenu');

@@ -36,7 +36,7 @@ return array(
         'before' => function($theme)
         {
             // You can remove this line anytime.
-            $theme->setTitle('Copyright ©  2015 - MatahariBiz.com');
+            $theme->setTitle('MatahariBiz.com');
 
             // Breadcrumb template.
             // $theme->breadcrumb()->setTemplate('

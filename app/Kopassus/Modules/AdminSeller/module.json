@@ -1,0 +1,7 @@
+{
+	"name": "AdminSeller",
+	"slug": "admin_seller",
+	"version": "1.0",
+	"description": "Seller commerce interface for MatahariBiz.com.",
+	"enabled": true
+}

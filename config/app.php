@@ -151,6 +151,8 @@ return [
         Teepluss\Theme\ThemeServiceProvider::class,
         // Menu
         Menu\MenuServiceProvider::class,
+        // Modular
+        Caffeinated\Modules\ModulesServiceProvider::class,
 
     ],
 
@@ -203,6 +205,7 @@ return [
         // Custom
         'Theme'      => Teepluss\Theme\Facades\Theme::class,
         'Menu'       => Menu\Menu::class,
+        'Module'     => Caffeinated\Modules\Facades\Module::class,
 
     ],
 
